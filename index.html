@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robins Gotham Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #menu, #character-selection, #difficulty-selection, #gameplay {
+            display: none;
+            margin: 20px;
+        }
+        #gameplay {
+            display: block; /* Show gameplay area by default */
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h1>Robins Gotham</h1>
+        <button onclick="showCharacterSelection()">Start Game</button>
+    </div>
+
+    <div id="character-selection">
+        <h2>Select Your Character</h2>
+        <button onclick="selectCharacter('Robin')">Robin</button>
+        <button onclick="selectCharacter('Nightwing')">Nightwing</button>
+        <button onclick="selectCharacter('Batgirl')">Batgirl</button>
+        <button onclick="showDifficultySelection()">Next</button>
+    </div>
+
+    <div id="difficulty-selection">
+        <h2>Select Difficulty</h2>
+        <button onclick="startGame('easy')">Easy</button>
+        <button onclick="startGame('medium')">Medium</button>
+        <button onclick="startGame('hard')">Hard</button>
+    </div>
+
+    <div id="gameplay">
+        <h2>Gameplay Area</h2>
+        <p>The game will be played here.</p>
+    </div>
+
+    <script>
+        function showCharacterSelection() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('character-selection').style.display = 'block';
+        }
+
+        function selectCharacter(character) {
+            alert('You selected ' + character);
+            showDifficultySelection();
+        }
+
+        function showDifficultySelection() {
+            document.getElementById('character-selection').style.display = 'none';
+            document.getElementById('difficulty-selection').style.display = 'block';
+        }
+
+        function startGame(difficulty) {
+            alert('Starting game on ' + difficulty + ' difficulty!');
+            document.getElementById('difficulty-selection').style.display = 'none';
+            document.getElementById('gameplay').style.display = 'block';
+            // Initialize gameplay here
+        }
+    </script>
+</body>
+</html>
